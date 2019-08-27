@@ -1,16 +1,27 @@
 var db = require("../models");
 
 module.exports = (app) => {
+    //posting a person
     app.post("/api/persons",(req, res) => {
-        console.log(req.body);
-        db.Person.create({
-            first_Name: req.body.first_Name,
-            last_Name: req.body.last_Name
-        })
+        
+        db.Person.create(
+            req.body
+        )
         .then((dbPerson) => {
             console.log("this is dbPerson " + dbPerson.first_Name);
-            console.log("this is last name: " + dbPerson.last_Name);
+            console.log("req.body " + dbPerson.id);
             res.json(dbPerson)
+        })
+    });
+
+    //posting a kid
+    app.post("/api/kid", (req, res) => {
+        db.Kid.create(
+            req.body
+        )
+        .then((dbKid) => {
+            console.log("this is kids name: " + dbKid.kid_Name);
+            res.json(dbKid)
         })
     });
 
@@ -20,4 +31,5 @@ module.exports = (app) => {
                 res.json(dbPerson)
             });
     });
+
 }

@@ -14,6 +14,7 @@ function getPeople() {
         let postsToAdd = []
         for (let i = 0; i < people.length; i++) {
             postsToAdd.push("<button>" + people[i].first_Name + " " + people[i].last_Name +"</button>" + " ");
+            console.log(people[i].id)
           };
         peopleContainer.append(postsToAdd);
     });
