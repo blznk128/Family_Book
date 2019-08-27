@@ -3,11 +3,18 @@ module.exports = (sequelize, DataTypes) => {
         first_Name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        last_Name: {
+            type: DataTypes.STRING,
+            // allowNull: false
         }
-        // last_Name: {
-        //     type: DataTypes.STRING,
-        //     // allowNull: false
-        // }
     });
+
+    Person.associate = (models) => {
+        Person.hasMany(models.Kid, {
+            onDelete: "cascade"
+        });
+    };
+
     return Person;
 }

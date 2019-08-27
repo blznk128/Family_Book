@@ -13,16 +13,10 @@ function getPeople() {
         people = data;
         let postsToAdd = []
         for (let i = 0; i < people.length; i++) {
-            postsToAdd.push("<button>" + people[i].first_Name + "</button>" + " ");
+            postsToAdd.push("<button>" + people[i].first_Name + " " + people[i].last_Name +"</button>" + " ");
           };
         peopleContainer.append(postsToAdd);
     });
 };
 
 getPeople();
-
-function addButtons(post) {
-    let button = $("<button>")
-    peopleContainer.append(button)
-    // peopleContainer.append(post.first_Name)
-}

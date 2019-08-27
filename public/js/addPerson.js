@@ -1,13 +1,15 @@
 $(document).ready(() => {
 
 let firstName = $("#firstName");
+let lastName = $("#lastName")
 
 $("#submit").on("click",() => {
     event.preventDefault();
     let newPerson = {
-        first_Name: firstName.val()
+        first_Name: firstName.val(),
+        last_Name: lastName.val()
     };
-    console.log("this is firstName: " +firstName)
+    console.log("this is firstName: " + firstName + lastName)
     addPerson(newPerson);
 });
 
