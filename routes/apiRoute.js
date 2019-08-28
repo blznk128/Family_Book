@@ -32,4 +32,13 @@ module.exports = (app) => {
             });
     });
 
+    app.get("/api/kid/", (req, res) => {
+        db.Person.findAll({})
+            .then((dbPerson)=> {
+                res.json(dbPerson)
+            });
+    });
+
+    
+
 }

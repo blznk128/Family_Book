@@ -13,7 +13,7 @@ require("./routes/apiRoute")(app);
 require("./routes/htmlRoute.js")(app);
 // require("./routes/kidApi.js")(app);
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log("App is on port: " + PORT);
     });
