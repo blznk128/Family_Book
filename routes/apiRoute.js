@@ -32,7 +32,9 @@ module.exports = (app) => {
     });
 
     app.get("/api/kid/", (req, res) => {
-        db.Kid.findAll({})
+        db.Kid.findAll({
+            include: [db.Person]
+        })
             .then((dbKid)=> {
                 res.json(dbKid)
             });
