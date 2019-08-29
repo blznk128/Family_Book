@@ -1,4 +1,5 @@
 let people;
+let kid;
 let peopleContainer = $("#people");
 
 //button to go to add person page
@@ -11,13 +12,26 @@ $("#toAddPerson").on("click", () => {
 function getPeople(author) {
     $.get("/api/persons/", (data) => {
         people = data;
-        let postsToAdd = []
+        let peopleToAdd = []
         for (let i = 0; i < people.length; i++) {
-            postsToAdd.push("<button>" + people[i].first_Name + " " + people[i].last_Name +"</button>" + " ");
-            console.log("this is people " + people[i].kid_Name)
+            // peopleToAdd.push("<button>" + people[i].first_Name + " " + people[i].last_Name +"</button>" + " ");
+            console.log("this is people " + people[i].first_Name)
           };
-        peopleContainer.append(postsToAdd);
+        // peopleContainer.append(peopleToAdd);
+    });
+};
+
+function getKid() {
+    $.get("/api/kid/", (data) => {
+        kid = data;
+        let peopleToAdd = []
+        for (let i = 0; i < kid.length; i++) {
+            // peopleToAdd.push("<button>" + kid[i].first_Name + " " + kid[i].last_Name +"</button>" + " ");
+            console.log("this is kid " + kid[i].kid_Name)
+          };
+        // peopleContainer.append(peopleToAdd);
     });
 };
 
 getPeople();
+getKid()

@@ -3,7 +3,6 @@ var db = require("../models");
 module.exports = (app) => {
     //posting a person
     app.post("/api/persons",(req, res) => {
-        
         db.Person.create(
             req.body
         )
@@ -12,6 +11,13 @@ module.exports = (app) => {
             console.log("req.body " + dbPerson.id);
             res.json(dbPerson)
         })
+    });
+
+    app.get("/api/persons/", (req, res) => {
+        db.Person.findAll({})
+            .then((dbPerson)=> {
+                res.json(dbPerson)
+            });
     });
 
     //posting a kid
@@ -25,17 +31,10 @@ module.exports = (app) => {
         })
     });
 
-    app.get("/api/persons/", (req, res) => {
-        db.Person.findAll({})
-            .then((dbPerson)=> {
-                res.json(dbPerson)
-            });
-    });
-
     app.get("/api/kid/", (req, res) => {
-        db.Person.findAll({})
-            .then((dbPerson)=> {
-                res.json(dbPerson)
+        db.Kid.findAll({})
+            .then((dbKid)=> {
+                res.json(dbKid)
             });
     });
 
