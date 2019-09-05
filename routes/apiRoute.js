@@ -13,6 +13,7 @@ module.exports = (app) => {
         })
     });
 
+    //pulling back all persons
     app.get("/api/persons/", (req, res) => {
         db.Person.findAll({})
             .then((dbPerson)=> {
@@ -31,6 +32,7 @@ module.exports = (app) => {
         })
     });
 
+    //getting back all kids with their user
     app.get("/api/kid/", (req, res) => {
         db.Kid.findAll({
             include: [db.Person]

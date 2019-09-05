@@ -8,35 +8,45 @@ $("#toAddPerson").on("click", () => {
     window.location.href = "/addPerson";
 });
 
+$().on("click", () => {
+  event.preventDefault();
+  console.log("hi")
+});
+
 //This gets everybody from the database
 function getPeople(author) {
-    authorId = author || "";
-    if (authorId) {
-      authorId = "/?author_id=" + authorId;
-    }
-    $.get("/api/kid/" + authorId, (data) => {
+    // authorId = author || "";
+    // if (authorId) {
+    //   authorId = "/?author_id=" + authorId;
+    // }
+    $.get("/api/kid/" , (data) => {
         people = data;
         let peopleToAdd = []
         for (let i = 0; i < people.length; i++) {
-            // peopleToAdd.push("<button>" + people[i].first_Name + " " + people[i].last_Name +"</button>" + " ");
-            console.log("this is kid " + people[i].kid_Name)
+          
+            peopleToAdd.push("<button>" + people[i].Person.first_Name + " " + people[i].Person.last_Name +"</button>" + " ");
+            console.log(data)
             console.log("this is person " + people[i].Person.first_Name)
+            console.log("this is kid " + people[i].kid_Name)
+            
           };
-        // peopleContainer.append(peopleToAdd);
+        peopleContainer.append(peopleToAdd);
     });
 };
-
-function getKid() {
-    $.get("/api/kid/", (data) => {
-        kid = data;
-        let peopleToAdd = []
-        for (let i = 0; i < kid.length; i++) {
-            // peopleToAdd.push("<button>" + kid[i].first_Name + " " + kid[i].last_Name +"</button>" + " ");
-            // console.log("this is kid " + kid[i].kid_Name)
-          };
-        // peopleContainer.append(peopleToAdd);
-    });
-};
-
 getPeople();
-getKid()
+
+
+// function getKid() {
+//     $.get("/api/kid/", (data) => {
+//         kid = data;
+//         let peopleToAdd = []
+//         for (let i = 0; i < kid.length; i++) {
+//             // peopleToAdd.push("<button>" + kid[i].first_Name + " " + kid[i].last_Name +"</button>" + " ");
+//             // console.log("this is kid " + kid[i].kid_Name)
+//           };
+//         // peopleContainer.append(peopleToAdd);
+//     });
+// };
+
+
+// getKid()
