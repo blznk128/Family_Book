@@ -3,7 +3,7 @@ let people;
 let kid;
 let peopleContainer = $("#people");
 let kidContainer = $(".kids");
-
+let peopleToAdd = []
 //button to go to add person page
 $("#toAddPerson").on("click", () => {
     event.preventDefault();
@@ -11,37 +11,49 @@ $("#toAddPerson").on("click", () => {
 });
 
 //This gets everybody from the database
-function getPeople(author) {
+function getPeople() {
     // authorId = author || "";
     // if (authorId) {
     //   authorId = "/?author_id=" + authorId;
     // }
     $.get("/api/kid/" , (data) => {
         people = data;
-        let peopleToAdd = []
+        
         for (let i = 0; i < people.length; i++) {
-            // peopleToAdd.push("<button id =" + people[i].Person.first_Name + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
-            // peopleToAdd.push("<button class =" + "penguin" + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
-            peopleToAdd.push("<button id =" + "penguin" +  people[i].Person.id + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
+            peopleToAdd.push(people[i].Person.first_Name  + "  " + people[i].Person.last_Name);
+            // peopleToAdd.push("<button id =" + "penguin" +  people[i].Person.id + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
             console.log("this is person: " + people[i].Person.first_Name)
             console.log("this is kid: " + people[i].kid_Name)
-            $(`#penguin${people[i].Person.first_Name}`).on("click",function() {
+            $(`.movie-btn`).on("click",function() {
               console.log("click worked", this.first_Name)
             })
           };
-          peopleContainer.append(peopleToAdd);
-          console.log("this is peopletoadd: ",peopleToAdd.kid_Name )
-          
-          
-          
-        
+          peopleContainer.append(renderButtons());
     })
 };
 getPeople();
 
+
+
+function renderButtons() {
+  for (var i = 0; i<peopleToAdd.length;i++) {
+    var addButton = $("<button>");
+    addButton.addClass("movie-btn");
+    addButton.attr("id", peopleToAdd[i]);
+    addButton.text(peopleToAdd[i]);
+    peopleContainer.append(addButton);
+    peopleContainer.append("  ");
+  };
+}
+
+$(document).on("click", ".movie-btn", function() {
+    console.log(this.id)
+});
+
+
 function getKids() {
   $(`#penguin${this.Person}`).on("click",function() {
-    console.log("click worked", this.first_Name)
+    console.log("click worked", this.id)
   })
 }
 
