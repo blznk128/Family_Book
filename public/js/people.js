@@ -2,8 +2,9 @@ $(document).ready(function() {
 let people;
 let kid;
 let peopleContainer = $("#people");
-let kidContainer = $(".kids");
+let kidContainer = $("#kids");
 let peopleToAdd = []
+
 //button to go to add person page
 $("#toAddPerson").on("click", () => {
     event.preventDefault();
@@ -12,51 +13,44 @@ $("#toAddPerson").on("click", () => {
 
 //This gets everybody from the database
 function getPeople() {
-    // authorId = author || "";
-    // if (authorId) {
-    //   authorId = "/?author_id=" + authorId;
-    // }
     $.get("/api/kid/" , (data) => {
         people = data;
         
         for (let i = 0; i < people.length; i++) {
-            peopleToAdd.push(people[i].Person.first_Name  + "  " + people[i].Person.last_Name);
-            // peopleToAdd.push("<button id =" + "penguin" +  people[i].Person.id + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
+            // peopleToAdd.push(people[i].Person.id + people[i].Person.first_Name  + "  " + people[i].Person.last_Name);
+            peopleToAdd.push("<button class = movie-btn id =" + "user" +  people[i].Person.id  + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
             console.log("this is person: " + people[i].Person.first_Name)
             console.log("this is kid: " + people[i].kid_Name)
-            $(`.movie-btn`).on("click",function() {
-              console.log("click worked", this.first_Name)
-            })
+            // $(`.movie-btn`).on("click",function() {
+            //   console.log("click worked", this.first_Name)
+            // })
+            $(document).on("click", `#user${people[i].id}`, function() {
+              event.preventDefault();
+              console.log("this is peopletoadd: ", people[i].kid_Name)
+          });
           };
-          peopleContainer.append(renderButtons());
+          peopleContainer.append(peopleToAdd);
+          
     })
 };
 getPeople();
 
+// function renderButtons() {
+//   for (var i = 0; i<peopleToAdd.length;i++) {
+//     var addButton = $("<button>");
+//     addButton.addClass("movie-btn");
+//     addButton.attr("id", peopleToAdd[i]);
+//     addButton.text(peopleToAdd[i]);
+//     peopleContainer.append(addButton);
+//     peopleContainer.append("  ");
+//   };
+// }
 
-
-function renderButtons() {
-  for (var i = 0; i<peopleToAdd.length;i++) {
-    var addButton = $("<button>");
-    addButton.addClass("movie-btn");
-    addButton.attr("id", peopleToAdd[i]);
-    addButton.text(peopleToAdd[i]);
-    peopleContainer.append(addButton);
-    peopleContainer.append("  ");
-  };
-}
-
-$(document).on("click", ".movie-btn", function() {
-    console.log(this.id)
-});
-
-
-function getKids() {
-  $(`#penguin${this.Person}`).on("click",function() {
-    console.log("click worked", this.id)
-  })
-}
-
+// $(document).on("click", ".movie-btn", function() {
+//     event.preventDefault();
+//     console.log(this)
+//     kidContainer.append("this is user name: " , people)
+// });
 
 })
 
