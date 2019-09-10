@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Person.associate = (models) => {
-        Person.hasMany(models.Kid, {
+        Person.hasMany(models.Secret, {
             onDelete: "cascade",
         });
     };

@@ -21,24 +21,24 @@ module.exports = (app) => {
             });
     });
 
-    //posting a kid
-    app.post("/api/kid", (req, res) => {
-        db.Kid.create(
+    //posting a secret
+    app.post("/api/secret", (req, res) => {
+        db.Secret.create(
             req.body
         )
-        .then((dbKid) => {
-            console.log("this is kids name: " + dbKid.kid_Name);
-            res.json(dbKid)
+        .then((dbSecret) => {
+            console.log("this is a secret: " + dbSecret.kid_Name);
+            res.json(dbSecret)
         })
     });
 
-    //getting back all kids with their user
-    app.get("/api/kid/", (req, res) => {
-        db.Kid.findAll({
+    //getting back all secrets with their user
+    app.get("/api/secret/", (req, res) => {
+        db.Secret.findAll({
             include: [db.Person]
         })
-            .then((dbKid)=> {
-                res.json(dbKid)
+            .then((dbSecret)=> {
+                res.json(dbSecret)
             });
     });
 

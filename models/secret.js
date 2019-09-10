@@ -1,18 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    let Kid = sequelize.define("Kid", {
-        kid_Name: {
+    let Secret = sequelize.define("Secret", {
+        secret: {
             type: DataTypes.STRING,
             allowNull: true
         }
     });
 
-    Kid.associate = (models) => {
-        Kid.belongsTo(models.Person, {
+    Secret.associate = (models) => {
+        Secret.belongsTo(models.Person, {
             foreignKey: {
                 allowNull: true
             }
         });
     };
 
-    return Kid;
+    return Secret;
 }

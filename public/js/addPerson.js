@@ -12,8 +12,8 @@ $("#submit").on("click",() => {
     trialOne(newPerson)
 });
 
-function addKid(Kid) {
-    $.post("/api/kid", Kid, () => {
+function addSecret(Secret) {
+    $.post("/api/secret", Secret, () => {
     })
 }
 
@@ -28,12 +28,12 @@ function trialOne(Person) {
             data: information,
         })
             .then(function() {
-                let kidName = $("#kidName");
-                let newKid = {
-                    kid_Name: kidName.val(),
+                let secret = $("#secret");
+                let newSecret = {
+                    secret: secret.val(),
                     PersonId: information.id
                 }
-                addKid(newKid)
+                addSecret(newSecret)
             })
     })
     }

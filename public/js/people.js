@@ -1,8 +1,8 @@
 $(document).ready(function() {
 let people;
-let kid;
+let secret;
 let peopleContainer = $("#people");
-let kidContainer = $("#kids");
+let secretContainer = $("#secrets");
 let peopleToAdd = []
 
 //button to go to add person page
@@ -13,20 +13,17 @@ $("#toAddPerson").on("click", () => {
 
 //This gets everybody from the database
 function getPeople() {
-    $.get("/api/kid/" , (data) => {
+    $.get("/api/secret/" , (data) => {
         people = data;
         
         for (let i = 0; i < people.length; i++) {
-            // peopleToAdd.push(people[i].Person.id + people[i].Person.first_Name  + "  " + people[i].Person.last_Name);
             peopleToAdd.push("<button class = movie-btn id =" + "user" +  people[i].Person.id  + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
             console.log("this is person: " + people[i].Person.first_Name)
-            console.log("this is kid: " + people[i].kid_Name)
-            // $(`.movie-btn`).on("click",function() {
-            //   console.log("click worked", this.first_Name)
-            // })
+            console.log("this is secret: " + people[i].secret)
             $(document).on("click", `#user${people[i].id}`, function() {
               event.preventDefault();
-              console.log("this is peopletoadd: ", people[i].kid_Name)
+              console.log("this is peopletoadd: ", people[i].secret)
+              secretContainer.text("this is user name: " + people[i].secret)
           });
           };
           peopleContainer.append(peopleToAdd);
