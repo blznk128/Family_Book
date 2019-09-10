@@ -17,13 +17,21 @@ function getPeople() {
         people = data;
         
         for (let i = 0; i < people.length; i++) {
-            peopleToAdd.push("<button class = movie-btn id =" + "user" +  people[i].Person.id  + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
+            peopleToAdd.push("<button  id =" + "user" +  people[i].Person.id  + ">" + people[i].Person.first_Name + "  " + people[i].Person.last_Name);
             console.log("this is person: " + people[i].Person.first_Name)
             console.log("this is secret: " + people[i].secret)
             $(document).on("click", `#user${people[i].id}`, function() {
               event.preventDefault();
+              secretContainer.empty();
               console.log("this is peopletoadd: ", people[i].secret)
-              secretContainer.text("this is user name: " + people[i].secret)
+              secretContainer.append("Name: " + people[i].Person.first_Name + " , " +"address: 123 fake street" + 
+              "<button id =" + "userSecret" +  people[i].id  + ">" + "click to see their secret!");
+              $(document).on("click", `#userSecret${people[i].id}`, function() {
+                  event.preventDefault();
+                  
+                secretContainer.append(people[i].Person.first_Name + "s " + "secret: " + people[i].secret)
+              })
+              
           });
           };
           peopleContainer.append(peopleToAdd);
