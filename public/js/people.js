@@ -24,11 +24,11 @@ function getPeople() {
               event.preventDefault();
               secretContainer.empty();
               console.log("this is peopletoadd: ", people[i].secret)
-              secretContainer.append("Name: " + people[i].Person.first_Name + " , " +"address: 123 fake street" + 
+              secretContainer.append("You picked: " + people[i].Person.first_Name + 
               "<button id =" + "userSecret" +  people[i].id  + ">" + "click to see their secret!");
               $(document).on("click", `#userSecret${people[i].id}`, function() {
                   event.preventDefault();
-                  
+                  secretContainer.empty();
                 secretContainer.append(people[i].Person.first_Name + "s " + "secret: " + people[i].secret)
               })
               
