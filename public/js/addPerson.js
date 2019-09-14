@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
 let firstName = $("#firstName");
 let lastName = $("#lastName");
 
@@ -36,5 +35,10 @@ function trialOne(Person) {
                 addSecret(newSecret)
             })
     })
-    }
+    };
+
+    $("#goToPeople").on("click",() => {
+        event.preventDefault();
+        window.location.href = "/";
+    });
 });

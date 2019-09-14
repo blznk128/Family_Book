@@ -9,14 +9,41 @@
     <title>Add Person</title>
 </head>
 <body>
-    <h2>Add Person</h2>
+<h2 id = addPersonTitle>Add Person</h2>
+<div id = container>
+        <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="firstName" type="text" class="validate">
+                      <label  for="firstName">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="lastName" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                            <input id="secret" type="text" class="validate">
+                            <label for="last_name">Secret</label>
+                          </div>
+                  </div>
+                </form>
+        </div>
+        <a id = submit class="waves-effect deep-purple darken-1 btn">Submit User</a>
+        <a id = goToPeople class="waves-effect  red darken-4 btn">Go to main page</a>
+</div>
+        
+
+
+    <!-- <h2 id = addPersonTitle>Add Person</h2>
     <p>First Name: <input id = firstName></input></p>
     <p>Last Name: <input id = lastName></input></p>
     <p>Secret: <input id = secret></input></p>
-    <button id = submit>Add</button>
+    <button id = submit>Add</button> -->
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./js/addPerson.js"></script>
 </body>
 </html>
