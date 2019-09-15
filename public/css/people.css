@@ -1,0 +1,16 @@
+body {
+    background: url(https://www.barraques.cat/pngfile/big/19-193878_pretty-little-liars-wallpaper-pretty-little-liars.jpg)
+}
+
+#addPersonTitle {
+    text-align: center;
+    margin-top: 43px;
+    background: black;
+    color: white;
+    height: 166px;
+    padding-top: 40px;
+    font-family: 'Great Vibes', cursive, serif;
+    font-size: 100px
+};
+
+

@@ -15,7 +15,7 @@ function getPeople() {
     $.get("/api/secret/" , (data) => {
         people = data;
         for (let i = 0; i < people.length; i++) {
-            peopleToAdd.push("<button  id =" + "user" +  people[i].Person.id  + " class = 'orange btn'>" + people[i].Person.first_Name + "  " + people[i].Person.last_Name + "  ");
+            peopleToAdd.push("<button  id =" + "user" +  people[i].Person.id  + " class = 'teal darken-3 btn'>" + people[i].Person.first_Name + "  " + people[i].Person.last_Name + "</button>" + "  ");
             $(document).on("click", `#user${people[i].id}`,() => {
               event.preventDefault();
               clickedContainer.empty();

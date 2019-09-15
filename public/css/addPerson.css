@@ -1,0 +1,13 @@
+body {
+    background: url(https://images.wallpaperscraft.com/image/question_marks_figures_3d_112755_2560x1440.jpg)
+}
+
+#addPersonTitle {
+    text-align: center;
+    color: red
+};
+
+#people {
+    text-align: center;
+    margin-left: 400px;
+};
