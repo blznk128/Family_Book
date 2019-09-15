@@ -19,8 +19,8 @@ function getPeople() {
             $(document).on("click", `#user${people[i].id}`,() => {
               event.preventDefault();
               clickedContainer.empty();
-              clickedContainer.append("You picked: " + people[i].Person.first_Name + " " + people[i].Person.last_Name +
-              "<button id =" + "userSecret" +  people[i].id  + " class = 'orange btn-large'>" + "click to see their secret!");
+              clickedContainer.append("<span style= 'font-size:30px;' class ='red-text'>" + "You picked: " + people[i].Person.first_Name + " " + people[i].Person.last_Name + "</span>" +
+              "<button id =" + "userSecret" +  people[i].id  + " class = 'blue btn-large'>" + "click to see their secret!");
               $(document).on("click", `#userSecret${people[i].id}`, function() {
                   event.preventDefault();
                   clickedContainer.empty();

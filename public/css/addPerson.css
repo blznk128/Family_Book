@@ -4,7 +4,13 @@ body {
 
 #addPersonTitle {
     text-align: center;
-    color: red
+    margin-top: 43px;
+    background: black;
+    color: white;
+    height: 166px;
+    padding-top: 40px;
+    font-family: 'Great Vibes', cursive, serif;
+    font-size: 100px
 };
 
 #people {
