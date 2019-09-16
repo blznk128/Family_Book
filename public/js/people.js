@@ -24,7 +24,7 @@ function getPeople() {
               $(document).on("click", `#userSecret${people[i].id}`, function() {
                   event.preventDefault();
                   clickedContainer.empty();
-                clickedContainer.append(people[i].Person.first_Name + "s " + "secret: " + people[i].secret)
+                clickedContainer.append("<span style= 'font-size:30px;' class = 'red-text'> "+ people[i].Person.first_Name + "s " + "secret: " + people[i].secret + "</span>")
               })
           });
           };
