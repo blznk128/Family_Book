@@ -7,8 +7,6 @@ module.exports = (app) => {
             req.body
         )
         .then((dbPerson) => {
-            console.log("this is dbPerson " + dbPerson.first_Name);
-            console.log("req.body " + dbPerson.id);
             res.json(dbPerson)
         })
     });
@@ -27,7 +25,6 @@ module.exports = (app) => {
             req.body
         )
         .then((dbSecret) => {
-            console.log("this is a secret: " + dbSecret.kid_Name);
             res.json(dbSecret)
         })
     });
